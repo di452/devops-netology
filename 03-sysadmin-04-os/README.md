@@ -9,10 +9,49 @@
 удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
 **Ответ**: 
+Создал Unit файл в /etc/systemd/system/netology.service. Запустил, проверил работы, остановил.
+![img_7.png](img_7.png)
 
 **Вопрос** №2: Ознакомьтесь с опциями node_exporter и выводом /metrics по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
-**Ответ**: Ознакомился
+**Ответ**: запустил node_exporter и выводом /metrics.
+
+![img_8.png](img_8.png)
+
+пробросил порт 9100 в vagrant открыл на локальной машине.
+
+![img_11.png](img_11.png)
+
+CPU:
+    
+
+    node_cpu_seconds_total{cpu="0",mode="idle"} 2238.49
+
+    node_cpu_seconds_total{cpu="0",mode="system"} 16.72
+
+    node_cpu_seconds_total{cpu="0",mode="user"} 6.86
+
+    process_cpu_seconds_total
+
+    
+Memory:
+
+    node_memory_MemAvailable_bytes 
+    node_memory_MemFree_bytes
+    
+Disk(если несколько дисков то для каждого):
+
+    node_disk_io_time_seconds_total{device="sda"} 
+    node_disk_read_bytes_total{device="sda"} 
+    node_disk_read_time_seconds_total{device="sda"} 
+    node_disk_write_time_seconds_total{device="sda"}
+    
+Network(так же для каждого активного адаптера):
+
+    node_network_receive_errs_total{device="eth0"} 
+    node_network_receive_bytes_total{device="eth0"} 
+    node_network_transmit_bytes_total{device="eth0"}
+    node_network_transmit_errs_total{device="eth0"}
 
 **Вопрос** №3: Установите в свою виртуальную машину Netdata. Воспользуйтесь готовыми пакетами для установки (sudo apt install -y netdata). После успешной установки:
 
@@ -21,10 +60,9 @@
 config.vm.network "forwarded_port", guest: 19999, host: 19999
 После успешной перезагрузки в браузере на своем ПК (не в виртуальной машине) вы должны суметь зайти на localhost:19999. Ознакомьтесь с метриками, которые по умолчанию собираются Netdata и с комментариями, которые даны к этим метрикам
 
-**Ответ**: Правильно ли я заменил значение 
-![img_3.png](img_3.png)
-
-Vagrant порт пробросил ![img_5.png](img_5.png), а на локальной машине не открывает...
+**Ответ**: После 2 дней мучений я победил этот netdata и получилось пробросить порты (Урааа!!!!)
+![img_9.png](img_9.png)
+![img_10.png](img_10.png)
 
 **Вопрос** №4: Можно ли по выводу dmesg понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?
 
