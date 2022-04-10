@@ -72,7 +72,6 @@ Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-40-generic x86_64)
 Чтобы просмотреть дополнительные обновления выполните: apt list --upgradable
 
 Your Hardware Enablement Stack (HWE) is supported until April 2025.
-di452@matrosov:~$
 ```
 **Вопрос** №6: Переименуйте файлы ключей из задания 5. Настройте файл конфигурации SSH клиента, так чтобы вход на удаленный сервер осуществлялся по имени сервера.
 
