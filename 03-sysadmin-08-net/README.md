@@ -9,27 +9,26 @@
  
 **Ответ**: Подключился посмотрел ![img.png](img.png)
 
-**Вопрос** №2: Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
-
-**Ответ**:
-
-* source-directory /etc/network/interfaces.d
-* auto dummy0
-* iface dummy0 inet static
-* address 192.168.1.100/24
-* pre-up ip link add dummy1 type dummy
-* post-down ip link del dummy1
-
-* vagrant@vagrant:~$ sudo -i
-* root@vagrant:~# ip route add 172.16.10.0/24 dev eth0
-* root@vagrant:~# ip route add 172.16.10.0/24 dev eth0 metric 100
-* root@vagrant:~# ip -br route
-* default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100
-* 10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15
-* 10.0.2.2 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100
-* 172.16.10.0/24 dev eth0 scope link
-* 172.16.10.0/24 dev eth0 scope link metric 100
-
+ 2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
+ ```
+ source-directory /etc/network/interfaces.d
+auto dummy0
+iface dummy0 inet static
+    address 10.2.2.2/32
+    pre-up ip link add dummy0 type dummy
+    post-down ip link del dummy0
+```
+```
+vagrant@vagrant:~$ sudo -i
+root@vagrant:~# ip route add 172.16.10.0/24 dev eth0
+root@vagrant:~# ip route add 172.16.10.0/24 dev eth0 metric 100
+root@vagrant:~# ip -br route
+default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100
+10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15
+10.0.2.2 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100
+172.16.10.0/24 dev eth0 scope link
+172.16.10.0/24 dev eth0 scope link metric 100
+```
 
 **Вопрос** №3: Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.
 
