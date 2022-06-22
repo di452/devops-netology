@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/02-Git-01-04/netbox" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/02-Git-01-04/terraform" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/netbox" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/terraform" vcs="Git" />
   </component>
