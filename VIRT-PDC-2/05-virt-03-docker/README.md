@@ -102,7 +102,7 @@ vagrant@vagrant:/$ docker exec -it mycentos bash
 mycentos
 root@8e2485b92ac9:/# exit
 exit
-vagrant@vagrant:/$ sudo vim data/test
+vagrant@vagrant:/$ sudo nano data/test
 vagrant@vagrant:/$ sudo cat data/test
 mycentos
 localhost
