@@ -1,2 +1,17 @@
-FROM nginx
-COPY
+FROM centos:8
+
+MAINTAINER Dmitriy Mosk <master@dmosk.ru>
+
+ENV TZ=Europe/Moscow
+
+RUN update -y
+RUN install -y nginx php php-fpm php-mysqli
+RUN clean all
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN mkdir /run/php-fpm
+
+COPY ./html/ /usr/share/nginx/html/
+
+CMD php-fpm -D ; nginx
+
+EXPOSE 80
