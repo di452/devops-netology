@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/02-Git-01-04/netbox" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/02-Git-01-04/terraform" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/VIRT-PDC-2/05-virt-04-docker-compose/virt-homeworks" vcs="Git" />
   </component>
 </project>
